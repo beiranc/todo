@@ -4,14 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Index Page</title>
+<title>Register Page</title>
 </head>
 <body>
-	<p>Home Page</p>
-	<h3>Demo</h3>
-	<ul>
-		<li><a href='/todo/pages/ListPage.jsp'>List</a> all Todolist.</li>
-		<li><a href='#'>Choose</a> which info to List .</li>
-	</ul>
+	
 </body>
 </html>

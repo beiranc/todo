@@ -41,7 +41,7 @@ public class TodolistDao {
 	}
 	
 	//修改一个todolist
-	public int updateTodolistById(Todolist todolist) throws Exception {
+	public int updateTodolist(Todolist todolist) throws Exception {
 		Connection connection = connectionUtil.getconn();
 		//SQL语句没加userId
 		String sql = "UPDATE todolist SET title=? , comments=? WHERE todolistId=?";
@@ -56,7 +56,7 @@ public class TodolistDao {
 	}
 	
 	//查询一个todolist
-	public Todolist getTodolist(String todolistId) throws Exception {
+	public Todolist getTodolistById(String todolistId) throws Exception {
 		Connection connection = connectionUtil.getconn();
 		String sql = "SELECT * FROM todolist WHERE todolistId=?";
 		PreparedStatement pStatement = connection.prepareStatement(sql);

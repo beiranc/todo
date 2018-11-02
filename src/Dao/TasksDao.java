@@ -44,7 +44,7 @@ public class TasksDao {
 	}
 	
 	//修改一个tasks
-	public int updateTasksById(Tasks tasks) throws Exception {
+	public int updateTasks(Tasks tasks) throws Exception {
 		Connection connection = connectionUtil.getconn();
 		String sql = "UPDATE tasks SET title=? , contents=? , isFinished=? , priority=? , deadline=? ,todolistId=?";
 		PreparedStatement pStatement = connection.prepareStatement(sql);
@@ -61,7 +61,7 @@ public class TasksDao {
 	}
 	
 	//查询一个tasks
-	public Tasks getTasks(String tasksId) throws Exception {
+	public Tasks getTasksById(String tasksId) throws Exception {
 		Connection connection = connectionUtil.getconn();
 		String sql = "SELECT * FROM tasks WHERE tasksId=?";
 		PreparedStatement pStatement = connection.prepareStatement(sql);
