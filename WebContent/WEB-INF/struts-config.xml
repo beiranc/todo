@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one or more
     contributor license agreements.  See the NOTICE file distributed with
@@ -19,19 +19,6 @@
 <!DOCTYPE struts-config PUBLIC
           "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
           "http://struts.apache.org/dtds/struts-config_1_3.dtd">
-
-<!--
-     This is a blank Struts configuration file with an example
-     welcome action/page and other commented sample elements.
-
-     Struts Validator is configured using the factory defaults
-     and is ready-to-use.
-
-     NOTE: If you have a generator tool to create the corresponding Java classes
-     for you, you could include the details in the "form-bean" declarations.
-     Otherwise, you would only define the "form-bean" element itself, with the
-     corresponding "name" and "type" attributes, as shown here.
--->
 
 
 <struts-config>
@@ -117,6 +104,25 @@
                 input="/pages/Edit{1}.jsp"/>
 
     end samples -->
+    
+    <!-- success跳listPage, 失败则跳error -->
+     <action path="/addTodolist" type="Controller.AddTodolistAction">
+            <forward name="success" path="/ListPage.jsp"/>
+            <forward name="error" path="/ErrorPage.jsp"/>
+    </action>
+    
+    <!-- success跳LoginPage, 失败则跳error -->
+    <action path="/register" type="Controller.RegisterAction">
+            <forward name="success" path="/LoginPage.jsp"/>
+            <forward name="error" path="/ErrorPage.jsp"/>
+    </action>
+    
+    <!-- success跳AddTodolistPage, 失败跳error -->
+    <action path="/login" type="Controller.LoginAction">
+            <forward name="success" path="/AddTodolistPage.jsp"/>
+            <forward name="error" path="/ErrorPage.jsp"/>
+    </action>
+    
     </action-mappings>
 
 

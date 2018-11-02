@@ -10,8 +10,8 @@
 	<p>Home Page</p>
 	<h3>Demo</h3>
 	<ul>
-		<li><a href='/todo/pages/ListPage.jsp'>List</a> all Todolist.</li>
-		<li><a href='#'>Choose</a> which info to List .</li>
+		<li>欢迎<a href='/todo/pages/RegisterPage.jsp'>注册</a></li><br/><br/>
+		<li>已有帐号？那就<a href='/todo/pages/LoginPage.jsp'>登录</a> </li>
 	</ul>
 </body>
 </html>

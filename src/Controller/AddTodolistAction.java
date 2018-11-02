@@ -8,8 +8,11 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import Model.TodolistService;
+
 public class AddTodolistAction extends Action {
 	public ActionForward execute(ActionMapping actionMapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return actionMapping.findForward("");
+		TodolistService todolistService = new TodolistService();
+		return actionMapping.findForward("");	
 	}
 }

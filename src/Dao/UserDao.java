@@ -2,7 +2,9 @@ package Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import Model.Todolist;
 import Model.User;
 import Util.ConnectionUtil;
 
@@ -21,5 +23,20 @@ public class UserDao {
 		//result大于0则写入数据成功
 		int result = pStatement.executeUpdate();
 		return result;
+	}
+	
+	//查询User
+	public User getUserById(String userId) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "SELECT * FROM user WHERE userId=?";
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		pStatement.setString(1, userId);
+		ResultSet resultSet = pStatement.executeQuery();
+		User user = new User();
+		while(resultSet.next()) {
+			user.setUserName(resultSet.getString("userName"));
+			user.setPassword(resultSet.getString("password"));
+		}
+		return user;
 	}
 }
