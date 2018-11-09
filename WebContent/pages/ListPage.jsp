@@ -30,9 +30,11 @@
 			<%@ page import="java.util.*" %>
 			<%@ page import="Model.Todolist"%>
 			<%
-				List<Todolist> list=new ArrayList();
+				List<Todolist> list = new ArrayList();
+				HttpSession httpSession = request.getSession();
 				//Action 部分setAttribute()
-				list = (List) request.getAttribute("todolist");
+				list = (List) httpSession.getAttribute("todolist");
+				//Error : 36行逻辑有问题！！！！！！！！
 				for(int i=0; i < list.size(); i++){
 			%>
 		    	<tr>

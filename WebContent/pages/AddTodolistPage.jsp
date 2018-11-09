@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h3>Add Todolist Page</h3>
-	<form action='addTodolist.do' method='POST'>
+	<form action='/todo/addTodolist.do' method='POST'>
 		Title: <input type='text' name='title'/> <br/><br/>
 		Comments: <input type='text' name='comments'/> <br/><br/>
 		<input type='submit' value='Confirm to Add a Todolist' />

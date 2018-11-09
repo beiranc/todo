@@ -25,7 +25,18 @@ public class UserService {
 		try {
 			user = userDao.getUserById(userId);
 		} catch (Exception e) {
-			System.out.println("GetUser Service Error ! ");
+			System.out.println("GetUserById Service Error ! ");
+			e.printStackTrace();
+		}
+		return user;
+	}
+	
+	public User getUserByName(String userName) {
+		User user = new User();
+		try {
+			user = userDao.getUserByName(userName);
+		} catch (Exception e) {
+			System.out.println("GetUserByName Service Error ! ");
 			e.printStackTrace();
 		}
 		return user;

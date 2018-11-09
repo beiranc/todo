@@ -107,20 +107,20 @@
     
     <!-- success跳listPage, 失败则跳error -->
      <action path="/addTodolist" type="Controller.AddTodolistAction">
-            <forward name="success" path="/ListPage.jsp"/>
-            <forward name="error" path="/ErrorPage.jsp"/>
+            <forward name="success" path="/pages/ListPage.jsp"/>
+            <forward name="error" path="/pages/ErrorPage.jsp"/>
     </action>
     
     <!-- success跳LoginPage, 失败则跳error -->
     <action path="/register" type="Controller.RegisterAction">
-            <forward name="success" path="/LoginPage.jsp"/>
-            <forward name="error" path="/ErrorPage.jsp"/>
+            <forward name="success" path="/pages/LoginPage.jsp"/>
+            <forward name="error" path="/pages/ErrorPage.jsp"/>
     </action>
     
     <!-- success跳AddTodolistPage, 失败跳error -->
     <action path="/login" type="Controller.LoginAction">
-            <forward name="success" path="/AddTodolistPage.jsp"/>
-            <forward name="error" path="/ErrorPage.jsp"/>
+            <forward name="success" path="/pages/AddTodolistPage.jsp"/>
+            <forward name="error" path="/pages/ErrorPage.jsp"/>
     </action>
     
     </action-mappings>

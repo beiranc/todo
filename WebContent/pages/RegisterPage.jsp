@@ -8,9 +8,7 @@
 </head>
 <body>
 	<h3>Register Page</h3>
-	<form action='register.do' method='POST'>
-		<%@page import="java.util.*" %>>
-		<input type='hidden' name='userId' value='<% UUID.randomUUID().toString().replace("-", "").toLowerCase(); %>'/>
+	<form action='/todo/register.do' method='POST'>
 		UserName: <input type='text' name='userName'/> <br/><br/>
 		Password: <input type='password' name='password'/> <br/><br/>
 		<input type='submit' value='Register' />

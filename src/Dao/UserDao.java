@@ -25,7 +25,7 @@ public class UserDao {
 		return result;
 	}
 	
-	//查询User
+	//通过Id查询User
 	public User getUserById(String userId) throws Exception {
 		Connection connection = connectionUtil.getconn();
 		String sql = "SELECT * FROM user WHERE userId=?";
@@ -35,6 +35,21 @@ public class UserDao {
 		User user = new User();
 		while(resultSet.next()) {
 			user.setUserName(resultSet.getString("userName"));
+			user.setPassword(resultSet.getString("password"));
+		}
+		return user;
+	}
+	
+	//通过用户名查询User
+	public User getUserByName(String userName) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "SELECT * FROM user WHERE userName=?";
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		pStatement.setString(1, userName);
+		ResultSet resultSet = pStatement.executeQuery();
+		User user = new User();
+		while(resultSet.next()) {
+			user.setUserId(resultSet.getString("userId"));
 			user.setPassword(resultSet.getString("password"));
 		}
 		return user;

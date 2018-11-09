@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h3>Login Page</h3>
-	<form action='login.do' method='POST'>
+	<form action='/todo/login.do' method='POST'>
 		UserName: <input type='text' name='userName'/> <br/><br/>
 		Password: <input type='password' name='password'/> <br/><br/>
 		<input type='submit' value='Login' />
