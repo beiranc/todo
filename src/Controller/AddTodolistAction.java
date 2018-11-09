@@ -1,7 +1,10 @@
 package Controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -39,7 +42,10 @@ public class AddTodolistAction extends Action {
 		boolean result = false;
 		result = todolistService.addTodolist(todolist);
 		if(result) {
-			httpSession.setAttribute("todolist", todolist);
+			//获取当前用户所有的清单
+//			List<Todolist> list = new ArrayList<>();
+//			list = todolistService.getAllTodolistById(userId);
+//			httpSession.setAttribute("list", list);
 			System.out.println("Add Todolist Success ! ");
 			return actionMapping.findForward("success");
 		} else {

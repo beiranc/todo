@@ -27,9 +27,6 @@ public class RegisterAction extends Action {
 		
 		user.setUserId(userId);
 		
-		HttpSession httpSession = request.getSession();
-		httpSession.setAttribute("userId", userId);
-		
 		if(userName == null || "".equals(userName)) {
 			System.out.println("用户名不能为空！！！");
 			return actionMapping.findForward("error");

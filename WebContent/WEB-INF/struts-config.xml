@@ -117,9 +117,9 @@
             <forward name="error" path="/pages/ErrorPage.jsp"/>
     </action>
     
-    <!-- success跳AddTodolistPage, 失败跳error -->
+    <!-- success跳listPage, 失败跳error -->
     <action path="/login" type="Controller.LoginAction">
-            <forward name="success" path="/pages/AddTodolistPage.jsp"/>
+            <forward name="success" path="/pages/ListPage.jsp"/>
             <forward name="error" path="/pages/ErrorPage.jsp"/>
     </action>
     

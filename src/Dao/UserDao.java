@@ -50,6 +50,7 @@ public class UserDao {
 		User user = new User();
 		while(resultSet.next()) {
 			user.setUserId(resultSet.getString("userId"));
+			user.setUserName(resultSet.getString("userName"));
 			user.setPassword(resultSet.getString("password"));
 		}
 		return user;

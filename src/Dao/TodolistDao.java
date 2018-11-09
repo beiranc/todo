@@ -75,6 +75,7 @@ public class TodolistDao {
 	public List<Todolist> getAllTodolist() throws Exception {
 		Connection connection = connectionUtil.getconn();
 		String sql = "SELECT * FROM todolist WHERE is_del=0";
+		//加入UserId进行分User查询
 		PreparedStatement pStatement = connection.prepareStatement(sql);
 		ResultSet resultSet = pStatement.executeQuery();
 		List<Todolist> list = new ArrayList();
@@ -82,9 +83,30 @@ public class TodolistDao {
 			Todolist todolist = new Todolist();
 			todolist.setTodolistId(resultSet.getString("todolistId"));
 			todolist.setTitle(resultSet.getString("title"));
-			todolist.setComments(resultSet.getString("commnets"));
+			todolist.setComments(resultSet.getString("comments"));
 			todolist.setUserId(resultSet.getString("userId"));
 			todolist.setIs_del(resultSet.getInt("is_del"));
+			list.add(todolist);
+		}
+		return list;
+	}
+	
+	//分用户获取所有的todolist
+	public List<Todolist> getAllTodolistById(String userId) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "SELECT * FROM todolist WHERE is_del=0 AND userId=?";
+		//加入UserId进行分User查询
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		pStatement.setString(1, userId);
+		ResultSet resultSet = pStatement.executeQuery();
+		List<Todolist> list = new ArrayList();
+		while(resultSet.next()) {
+			Todolist todolist = new Todolist();
+			todolist.setTodolistId(resultSet.getString("todolistId"));
+			todolist.setTitle(resultSet.getString("title"));
+			todolist.setComments(resultSet.getString("comments"));
+			todolist.setIs_del(resultSet.getInt("is_del"));
+			list.add(todolist);
 		}
 		return list;
 	}
