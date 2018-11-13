@@ -8,11 +8,16 @@
 </head>
 <body>
 	<h3>Add Tasks Page</h3>
-	<form action='addTasks.do' method='POST'>
+	<form action='/todo/addTasks.do' method='POST'>
+		<input type='hidden' name='todolistId' value='<%= request.getParameter("todolistId") %>'/>
 		Title: <input type='text' name='title'/> <br/><br/>
 		Contents: <input type='text' name='contents'/> <br/><br/>
-		Priority: <input type='text' name='priority'/> <br/><br>
-		Deadline: <input type='date' name='deadline'/> <br/><br/>
+		Priority: <select name='priority'>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+				  </select> <br/><br/>		  
+		Deadline: <input type='date' name='deadline' /> <br/><br/>
 		<input type='submit' value='Confirm to Add a Tasks' />
 	</form>
 </body>

@@ -49,7 +49,7 @@
 				for(int i=0; i < list.size(); i++){
 			%>
 		    	<tr>
-			    	<td><%= list.get(i).getTitle() %></td>
+			    	<td><a href='/todo/pages/AddTasksPage.jsp?todolistId=<%= list.get(i).getTodolistId() %>'><%= list.get(i).getTitle() %></a></td>
 					<td><%= list.get(i).getComments() %></td>
 				</tr>
 			<%

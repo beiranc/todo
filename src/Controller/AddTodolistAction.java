@@ -18,8 +18,9 @@ import Model.Todolist;
 import Model.TodolistService;
 
 public class AddTodolistAction extends Action {
+	TodolistService todolistService = new TodolistService();
+	
 	public ActionForward execute(ActionMapping actionMapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		TodolistService todolistService = new TodolistService();
 		Todolist todolist = new Todolist();
 		HttpSession httpSession = request.getSession();
 		
@@ -27,6 +28,9 @@ public class AddTodolistAction extends Action {
 		String title = new String(request.getParameter("title").trim().getBytes("iso-8859-1"), "UTF-8");
 		String comments = new String(request.getParameter("comments").trim().getBytes("iso-8859-1"), "UTF-8");
 		String todolistId = UUID.randomUUID().toString().replace("-", "").toLowerCase();
+		
+		//用于创建tasks
+//		httpSession.setAttribute("todolistId", todolistId);
 		
 		todolist.setIs_del(0);
 		todolist.setTodolistId(todolistId);

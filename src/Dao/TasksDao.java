@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Tasks;
+import Model.Todolist;
 import Util.ConnectionUtil;
 
 public class TasksDao {
@@ -101,6 +102,31 @@ public class TasksDao {
 			tasks.setDeadline(resultSet.getString("deadline"));
 			tasks.setIs_del(resultSet.getInt("is_del"));
 			tasks.setTodolistId(resultSet.getString("todolistId"));
+			list.add(tasks);
+		}
+		return list;
+	}
+	
+	//根据TodolistId获取所有的Tasks
+	public List<Tasks> getAllTasksById(String todolistId) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "SELECT * FROM tasks WHERE is_del=0 AND todolistId=?";
+		//加入UserId进行分User查询
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		pStatement.setString(1, todolistId);
+		ResultSet resultSet = pStatement.executeQuery();
+		List<Tasks> list = new ArrayList();
+		while(resultSet.next()) {
+			Tasks tasks = new Tasks();
+			tasks.setTasksId(resultSet.getString("tasksId"));
+			tasks.setTitle(resultSet.getString("title"));
+			tasks.setContents(resultSet.getString("contents"));
+			tasks.setFinished(resultSet.getBoolean("isFinished"));
+			tasks.setPriority(resultSet.getInt("priority"));
+			tasks.setCreateTime(resultSet.getString("createTime"));
+			tasks.setDeadline(resultSet.getString("deadline"));
+			tasks.setIs_del(resultSet.getInt("is_del"));
+			tasks.setTodolistId(todolistId);
 			list.add(tasks);
 		}
 		return list;

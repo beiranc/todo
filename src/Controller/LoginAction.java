@@ -25,6 +25,7 @@ public class LoginAction extends Action {
 		//获取数据库中当前User数据
 		User user = userService.getUserByName(userName);
 		
+		//用于创建Todolist
 		HttpSession httpSession = request.getSession();
 		httpSession.setAttribute("userId",user.getUserId());
 		

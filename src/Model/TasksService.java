@@ -63,4 +63,15 @@ public class TasksService {
 		}
 		return list;
 	}
+	
+	public List<Tasks> getAllTasksById(String todolistId) {
+		List<Tasks> list = new ArrayList();
+		try {
+			list = tasksDao.getAllTasksById(todolistId);
+		} catch (Exception e) {
+			System.out.println("GetAllTasksById Service Error ! ");
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
