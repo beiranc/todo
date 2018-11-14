@@ -28,7 +28,7 @@
 			Todolist todolist = new Todolist();
 			todolist = todolistService.getTodolistById(todolistId);
 		%>
-	    <form class="form-signin" action="/todo/updateTodolist.do?todolistId=<%= todolist.getTodolistId() %>" method="post">
+	    <form class="form-signin" action="/todo/updateTodolist.do?todolistId=<%= todolistId %>" method="post">
 	        <h2 class="form-signin-heading" style="text-align:center;">修改此清单</h2>
 	        <label for="inputTitle" class="sr-only">标题</label>
 	        <input type="text" id="inputTitle" name="title" class="form-control" value="<%= todolist.getTitle() %>" required autofocus><br/>

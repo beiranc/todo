@@ -24,7 +24,6 @@ public class UpdateTodolistAction extends Action {
 		todolist.setComments(comments);
 		todolist.setTodolistId(todolistId);
 		
-		//修改失败 原因不详
 		boolean result = todolistService.updateTodolist(todolist);
 		
 		if(result) {
