@@ -123,8 +123,21 @@
             <forward name="error" path="/pages/ErrorPage.jsp" redirect="true"/>
     </action>
     
+    <!-- success跳listTasksPage,失败则跳error -->
     <action path="/addTasks" type="Controller.AddTasksAction">
             <forward name="success" path="/pages/ListTasksPage.jsp" redirect="true"/>
+            <forward name="error" path="/pages/ErrorPage.jsp" redirect="true"/>
+    </action>
+    
+    <!-- success跳listPage,失败则跳error -->
+    <action path="/listPage" type="Controller.ListAllTodoAction">
+            <forward name="success" path="/pages/ListPage.jsp" redirect="true"/>
+            <forward name="error" path="/pages/ErrorPage.jsp" redirect="true"/>
+    </action>
+    
+    <!-- success跳listPage,失败则跳error -->
+    <action path="/updateTodolist" type="Controller.UpdateTodolistAction">
+            <forward name="success" path="/pages/ListPage.jsp" redirect="true"/>
             <forward name="error" path="/pages/ErrorPage.jsp" redirect="true"/>
     </action>
     

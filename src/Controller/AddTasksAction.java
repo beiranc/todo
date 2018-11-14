@@ -49,7 +49,9 @@ public class AddTasksAction extends Action {
 		boolean result = false;
 		result = tasksService.addTasks(tasks);
 		if(result) {
-			httpSession.setAttribute("todolistId", todolistId);
+//			httpSession.setAttribute("todolistId", todolistId);
+			
+			//跳转至ListTasksPage时缺失todolistId导致无法显示所有任务
 			System.out.println("Add Tasks Success. ");
 			return actionMapping.findForward("success");
 		}else {

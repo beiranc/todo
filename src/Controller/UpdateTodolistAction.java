@@ -8,18 +8,29 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import Model.Todolist;
 import Model.TodolistService;
 
-public class ListAllTodoAction extends Action {
+public class UpdateTodolistAction extends Action {
 	TodolistService todolistService = new TodolistService();
 	
 	public ActionForward execute(ActionMapping actionMapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String title = new String(request.getParameter("title").trim().getBytes("iso-8859-1"), "UTF-8");
+		String comments = new String(request.getParameter("comments").trim().getBytes("iso-8859-1"), "UTF-8");
 		String todolistId = new String(request.getParameter("todolistId").trim().getBytes("iso-8859-1"), "UTF-8");
 		
-		boolean result = todolistService.deleteTodolistById(todolistId);
+		Todolist todolist = new Todolist();
+		todolist.setTitle(title);
+		todolist.setComments(comments);
+		todolist.setTodolistId(todolistId);
+		
+		//修改失败 原因不详
+		boolean result = todolistService.updateTodolist(todolist);
+		
 		if(result) {
 			return actionMapping.findForward("success");
 		} else {
+			System.out.println("Update Error ! ");
 			return actionMapping.findForward("error");
 		}
 	}

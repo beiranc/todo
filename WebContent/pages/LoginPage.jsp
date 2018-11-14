@@ -5,32 +5,33 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Login Page</title>
+		<!-- 导入icon -->
+		<link rel="icon" href="./images/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<meta name="keywords" content="Faker" />
-		<link href="css/Login.css" rel='stylesheet' type='text/css' />
-		<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- 导入自定义CSS -->
+		<link href="./css/Login.css" rel='stylesheet' type='text/css' />
+		<!-- jquery for Bootstrap 导入-->
+        <script src="./bootstrap/js/jquery/2.0.0/jquery.min.js"></script>
+
+        <!-- bootstrap 导入 -->
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap/3.3.6/bootstrap.min.css">
+        <script src="./bootstrap/js/bootstrap/3.3.6/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<!--Login-->
-		<h1>用户登录</h1>
-		<div class="login-form">
-			<div class="head-info">
-				<label class="lbl-1"> </label>
-				<label class="lbl-2"> </label>
-				<label class="lbl-3"> </label>
-			</div>
-				<div class="clear"> </div>
-			<div class="avtar">
-				<img src="images/avtar.png" />
-			</div>
-			<form action='/todo/login.do' method='POST'>
-				<input type="text" class="text" name="userName" placeholder="请输入用户名">
-				<input type="password" name="password" placeholder="请输入密码">
-				<div class="login">
-					<input type="submit" value="确认登录">
-				</div>
-			</form>
-		</div>
+		<div class="container">
+            <form class="form-signin" action="/todo/login.do" method="post">
+                <h2 class="form-signin-heading" style="text-align:center;">User Sign in</h2>
+                <label for="inputUserName" class="sr-only">UserName</label>
+                <input type="text" id="inputUserName" name="userName" class="form-control" placeholder="UserName" required autofocus><br/>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required><br/>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-danger btn-block" type="submit">登录</button>
+            </form>
+        </div>
 	</body>
 </html>
