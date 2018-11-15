@@ -16,16 +16,17 @@ public class TasksDao {
 	//增加一个tasks
 	public int addTasks(Tasks tasks) throws Exception {
 		Connection connection = connectionUtil.getconn();
-		String sql = "INSERT INTO tasks(tasksId,title,contents,priority,createTime,deadline,is_del,todolistId) VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO tasks(tasksId,title,contents,isFinished,priority,createTime,deadline,is_del,todolistId) VALUES(?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pStatement = connection.prepareStatement(sql);
 		pStatement.setString(1, tasks.getTasksId()); //tasksId
 		pStatement.setString(2, tasks.getTitle()); //title
 		pStatement.setString(3, tasks.getContents()); //contents
-		pStatement.setInt(4, tasks.getPriority()); //priority
-		pStatement.setString(5, tasks.getCreateTime()); //createTime
-		pStatement.setString(6, tasks.getDeadline()); //deadline
-		pStatement.setInt(7, 0); //is_del 0为存在 1为删除
-		pStatement.setString(8, tasks.getTodolistId()); //todolistId
+		pStatement.setBoolean(4, tasks.isFinished()); //isFinished
+		pStatement.setInt(5, tasks.getPriority()); //priority
+		pStatement.setString(6, tasks.getCreateTime()); //createTime
+		pStatement.setString(7, tasks.getDeadline()); //deadline
+		pStatement.setInt(8, 0); //is_del 0为存在 1为删除
+		pStatement.setString(9, tasks.getTodolistId()); //todolistId
 		
 		//result大于0则表示插入数据成功
 		int result = pStatement.executeUpdate();

@@ -66,6 +66,7 @@
         						<th class="text-center">创建时间</th>
                                 <th class="text-center">最后期限</th>
                                 <th class="text-center">是否完成</th>
+                                <th class="text-center">设为完成</th>
         					</tr>
         				</thead>
         				<tbody>
@@ -82,7 +83,18 @@
             					<td><%= list.get(i).getPriority() %></td>
             					<td><%= list.get(i).getCreateTime() %></td>
             					<td><%= list.get(i).getDeadline() %></td>
-            					<td><%= list.get(i).isFinished() %></td>
+            					<%
+            						if(list.get(i).isFinished()) {
+            					%>
+            							<td>已完成</td>
+            					<%
+            						} else {
+            					%>
+            							<td>未完成</td>
+            					<%	
+            						}
+            					%>
+            					<td><a href='#'><button class="btn btn-large btn-primary" type="button">完成</button></a></td>
         					</tr>
                             <%
                 				}
