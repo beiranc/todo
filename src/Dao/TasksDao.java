@@ -132,4 +132,17 @@ public class TasksDao {
 		}
 		return list;
 	}
+	
+	//将任务设为完成
+	public int completeTasks(String tasksId) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "UPDATE tasks SET isFinished=? WHERE tasksId=?";
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		pStatement.setBoolean(1, true);
+		pStatement.setString(2, tasksId);
+		
+		//result大于0表示修改成功
+		int result = pStatement.executeUpdate();
+		return result;
+	}
 }

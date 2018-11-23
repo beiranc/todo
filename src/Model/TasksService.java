@@ -1,5 +1,7 @@
 package Model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,5 +75,16 @@ public class TasksService {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public boolean completeTasks(String tasksId) throws Exception {
+		boolean result = false;
+		try {
+			result = tasksDao.completeTasks(tasksId) > 0;
+		} catch (Exception e) {
+			System.out.println("CompleteTasks Service Error ! ");
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

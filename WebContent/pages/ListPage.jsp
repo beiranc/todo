@@ -36,32 +36,54 @@
     			String userId = (String) httpSession.getAttribute("userId");
     			user = userService.getUserById(userId);
     		%>
+    		<!-- 工具栏 -->
     		<div class="jumbotron well text-center">
-	    		<div class="container-fluid" id="LG">
+	    		<div class="container-fluid" id="XS">
 					<div class="row-fluid">
 						<div class="span12">
-							<div class="row-fluid">
-								<div class="col-xs-3 span3">
-									<button class="btn btn-block btn-large btn-warning disabled" type="button"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;当前用户: <%= user.getUserName() %></button>
-									 <span></span>
-								</div>
-								<div class="col-xs-3 span3">
-									 <a href='/todo/pages/AddTodolistPage.jsp'><button class="btn btn-block btn-large btn-info" type="button"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个清单</button></a>
-								</div>
-								<div class="col-xs-3 span3">
-									 <a href='/todo'><button class="btn btn-block btn-large btn-danger" type="button"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回主页面</button></a>
-								</div>
-								<div class="col-xs-3 span3">
-									<!-- 搜索框 -->
-									 <form class="form-search form-inline">
-				        				<input class="input-medium search-query" type="text" placeholder="keyword..."/> <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span>&nbsp;查找</button>
-				        			</form>
-								</div>
-							</div>
+                            <table class="table">
+                				<tbody>
+                					<tr> <!-- btn-lg -->
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning btn-block active disabled visible-xs"><%= user.getUserName() %></button></td>
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning btn-block active disabled visible-sm"><%= user.getUserName() %></button></td>
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning btn-block active disabled visible-md"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;当前用户: <%= user.getUserName() %></button></td>
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning btn-block active disabled visible-lg"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;当前用户: <%= user.getUserName() %></button></td>
+
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTodolistPage.jsp'><button type="button" class="btn btn-info btn-block active visible-xs">添加</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTodolistPage.jsp'><button type="button" class="btn btn-info btn-block active visible-sm">添加</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTodolistPage.jsp'><button type="button" class="btn btn-info btn-block active visible-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个清单</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTodolistPage.jsp'><button type="button" class="btn btn-info btn-block active visible-lg"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个清单</button></a></td>
+
+                                        <td style="border: 0px;"><a href='/todo'><button type="button" class="btn btn-danger btn-block active visible-xs">返回</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo'><button type="button" class="btn btn-danger btn-block active visible-sm">返回</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo'><button type="button" class="btn btn-danger btn-block active visible-md"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回主页面</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo'><button type="button" class="btn btn-danger btn-block active visible-lg"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回主页面</button></a></td>
+                					</tr>
+                				</tbody>
+                			</table>
 						</div>
 					</div>
 				</div>
     		</div>
+    		<!-- 搜索框 -->
+    		<div class="jumbotron well text-center">
+   	    		<div class="container-fluid" id="XS">
+   					<div class="row-fluid">
+   						<div class="span12">
+                               <form class="form form-search form-inline">
+                                   <table class="table">
+                       				<tbody>
+                       					<tr> <!-- btn-lg -->
+                       						<td style="border: 0px;"><input style="width: 100%;" class="input-medium search-query form-control" type="text" placeholder="keyword..."/></td>
+                       						<td style="border: 0px;"><button type="submit" class="btn btn-success btn-block active"><span class="glyphicon glyphicon-search"></span>&nbsp;查找</button></td>
+                       					</tr>
+                       				</tbody>
+                       			</table>
+                               </form>
+   						</div>
+   					</div>
+   				</div>
+        	</div>
         	<div class="row-fluid">
         		<div class="span12">
         			<table class="table table-hover table-bordered text-center">

@@ -35,21 +35,29 @@
                 Todolist todolist = todolistService.getTodolistById(todolistId);
             %>
     		<div class="jumbotron well text-center">
-	    		<div class="container-fluid" id="LG">
+	    		<div class="container-fluid" id="XS">
 					<div class="row-fluid">
 						<div class="span12">
-							<div class="row-fluid">
-								<div class="col-xs-3 span3">
-									<button class="btn btn-block btn-large btn-warning disabled" type="button"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;当前清单: <%= todolist.getTitle() %></button>
-									 <span></span>
-								</div>
-								<div class="col-xs-3 span3">
-									 <a href='/todo/pages/AddTasksPage.jsp?todolistId=<%= todolistId %>'><button class="btn btn-block btn-large btn-info" type="button"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个任务</button></a>
-								</div>
-								<div class="col-xs-3 span3">
-									 <a href='/todo/pages/ListPage.jsp'><button class="btn btn-block btn-large btn-danger" type="button"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回主列表</button></a>
-								</div>
-							</div>
+                            <table class="table">
+                				<tbody>
+                					<tr> <!-- btn-lg -->
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning btn-block active disabled visible-xs"><%= todolist.getTitle() %></button></td>
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning  active disabled visible-sm"><%= todolist.getTitle() %></button></td>
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning btn-block active disabled visible-md"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;当前清单: <%= todolist.getTitle() %></button></td>
+                                        <td style="border: 0px;"><button type="button" class="btn btn-warning btn-block active disabled visible-lg"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;当前清单: <%= todolist.getTitle() %></button></td>
+
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTasksPage.jsp?todolistId=<%= todolistId %>'><button type="button" class="btn btn-info btn-block active visible-xs">添加</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTasksPage.jsp?todolistId=<%= todolistId %>'><button type="button" class="btn btn-info btn-block active visible-sm">添加</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTasksPage.jsp?todolistId=<%= todolistId %>'><button type="button" class="btn btn-info btn-block active visible-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个任务</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/AddTasksPage.jsp?todolistId=<%= todolistId %>'><button type="button" class="btn btn-info btn-block active visible-lg"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加一个任务</button></a></td>
+
+                                        <td style="border: 0px;"><a href='/todo/pages/ListPage.jsp'><button type="button" class="btn btn-danger btn-block active visible-xs">返回</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/ListPage.jsp'><button type="button" class="btn btn-danger btn-block active visible-sm">返回</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/ListPage.jsp'><button type="button" class="btn btn-danger btn-block active visible-md"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回主列表</button></a></td>
+                                        <td style="border: 0px;"><a href='/todo/pages/ListPage.jsp'><button type="button" class="btn btn-danger btn-block active visible-lg"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回主列表</button></a></td>
+                					</tr>
+                				</tbody>
+                			</table>
 						</div>
 					</div>
 				</div>
@@ -94,6 +102,7 @@
             					<%	
             						}
             					%>
+            					<!-- list.get(i).getTasksId -->
             					<td><a href='#'><button class="btn btn-large btn-primary" type="button">完成</button></a></td>
         					</tr>
                             <%
