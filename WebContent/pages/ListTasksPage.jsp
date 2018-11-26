@@ -66,14 +66,13 @@
         		<div class="span12">
         			<table class="table table-hover table-bordered text-center">
         				<thead>
-                            <caption class="text-center"><h1><%= todolist.getTitle() %></h1></caption>
+                            <caption class="text-center"><h1><%= todolist.getTitle() %>的未完成事项</h1></caption>
         					<tr>
         						<th class="text-center">标题</th>
         						<th class="text-center">内容</th>
         						<th class="text-center">优先级</th>
         						<th class="text-center">创建时间</th>
                                 <th class="text-center">最后期限</th>
-                                <th class="text-center">是否完成</th>
                                 <th class="text-center">设为完成</th>
         					</tr>
         				</thead>
@@ -86,24 +85,56 @@
                 				for(int i=0; i < list.size(); i++){
                 			%>
         					<tr class="info">
+                                <%
+                                	if(!list.get(i).isFinished()) {
+                                %>
                                 <td><%= list.get(i).getTitle() %></td>
             					<td><%= list.get(i).getContents() %></td>
             					<td><%= list.get(i).getPriority() %></td>
             					<td><%= list.get(i).getCreateTime() %></td>
             					<td><%= list.get(i).getDeadline() %></td>
-            					<%
-            						if(list.get(i).isFinished()) {
-            					%>
-            							<td>已完成</td>
-            					<%
-            						} else {
-            					%>
-            							<td>未完成</td>
-            					<%	
-            						}
-            					%>
             					<!-- list.get(i).getTasksId -->
-            					<td><a href='#'><button class="btn btn-large btn-primary" type="button">完成</button></a></td>
+            					<td><a href='/todo/listTasksPage.do?tasksId=<%= list.get(i).getTasksId() %>&todolistId=<%= todolistId %>'><button class="btn btn-large btn-primary" type="button">完成</button></a></td>
+            					<%
+                                	}
+                                %>
+        					</tr>
+                            <%
+                				}
+                			%>
+        				</tbody>
+        			</table>
+        			
+        			<table class="table table-hover table-bordered text-center">
+        				<thead>
+                            <caption class="text-center"><h1><%= todolist.getTitle() %>的已完成事项</h1></caption>
+        					<tr>
+        						<th class="text-center">标题</th>
+        						<th class="text-center">内容</th>
+        						<th class="text-center">优先级</th>
+        						<th class="text-center">创建时间</th>
+                                <th class="text-center">最后期限</th>
+                                <th class="text-center">切换为未完成</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+                            <%
+                				for(int i=0; i < list.size(); i++){
+                			%>
+        					<tr class="info">
+        						<%
+        							if(list.get(i).isFinished()) {
+        						%>
+                                <td style="color: grey; text-decoration: line-through; font-style: italic;"><%= list.get(i).getTitle() %></td>
+            					<td><%= list.get(i).getContents() %></td>
+            					<td><%= list.get(i).getPriority() %></td>
+            					<td><%= list.get(i).getCreateTime() %></td>
+            					<td><%= list.get(i).getDeadline() %></td>
+            					<!-- list.get(i).getTasksId -->
+            					<td><a href='/todo/listTasksPage.do?tasksId=<%= list.get(i).getTasksId() %>&todolistId=<%= todolistId %>'><button class="btn btn-large btn-success" type="button">切换</button></a></td>
+            					<%
+        							}
+        						%>
         					</tr>
                             <%
                 				}

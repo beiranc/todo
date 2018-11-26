@@ -21,6 +21,7 @@ public class AddTasksAction extends Action {
 	
 	public ActionForward execute(ActionMapping actionMapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession httpSession = request.getSession();
+		
 		String todolistId = new String(request.getParameter("todolistId").trim().getBytes("iso-8859-1"), "UTF-8");
 		String title = new String(request.getParameter("title").trim().getBytes("iso-8859-1"), "UTF-8");
 		String contents = new String(request.getParameter("contents").trim().getBytes("iso-8859-1"), "UTF-8");
@@ -53,7 +54,9 @@ public class AddTasksAction extends Action {
 			
 			//跳转至ListTasksPage时缺失todolistId导致无法显示所有任务
 			System.out.println("Add Tasks Success. ");
-			return actionMapping.findForward("success");
+			response.sendRedirect(request.getContextPath() + "/pages/ListTasksPage.jsp?todolistId=" + todolistId);
+			return null;
+//			return actionMapping.findForward("success");
 		}else {
 			return actionMapping.findForward("error");
 		}

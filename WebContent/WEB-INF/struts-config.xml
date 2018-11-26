@@ -125,6 +125,7 @@
     
     <!-- success跳listTasksPage,失败则跳error -->
     <action path="/addTasks" type="Controller.AddTasksAction">
+    		<!-- success暂时不能用，否则会出现跳转问题 -->
             <forward name="success" path="/pages/ListTasksPage.jsp" redirect="true"/>
             <forward name="error" path="/pages/ErrorPage.jsp" redirect="true"/>
     </action>
@@ -139,6 +140,13 @@
     <action path="/updateTodolist" type="Controller.UpdateTodolistAction">
             <forward name="success" path="/pages/ListPage.jsp" redirect="true"/>
             <forward name="error" path="/pages/ErrorPage.jsp" redirect="true"/>
+    </action>
+    
+    <!-- success跳listTasksPage,失败则跳error -->
+    <action path="/listTasksPage" type="Controller.ListAllTasksAction">
+    		<!-- success暂时不能用，否则会出现跳转问题 -->
+            <forward name="success" path="/pages/ListTasksPage.jsp" redirect="true"/>
+            <forward name="error" path="/pages/ErrorPage.jsp"/>
     </action>
     
     </action-mappings>
