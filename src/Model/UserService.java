@@ -9,6 +9,7 @@ import Dao.UserDao;
 public class UserService {
 	UserDao userDao = new UserDao();
 	
+	//增加一个User
 	public boolean addUser(User user) {
 		boolean result = false;
 		try {
@@ -20,6 +21,7 @@ public class UserService {
 		return result;
 	}
 	
+	//通过Id查询User
 	public User getUserById(String userId) {
 		User user = new User();
 		try {
@@ -31,6 +33,7 @@ public class UserService {
 		return user;
 	}
 	
+	//通过用户名查询User
 	public User getUserByName(String userName) {
 		User user = new User();
 		try {
@@ -40,5 +43,18 @@ public class UserService {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	//通过用户名检查User是否存在
+	public boolean checkUserByName(String userName) throws Exception {
+		boolean result = false;
+		try {
+			//true则存在, false则不存在
+			result = userDao.checkUserByName(userName) > 0;
+		} catch (Exception e) {
+			System.out.println("CheckUserByname Service Error ! ");
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

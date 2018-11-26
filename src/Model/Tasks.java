@@ -11,6 +11,10 @@ public class Tasks {
 	private int is_del;
 	private String todolistId;
 	
+	//任务需要加入一个状态：过期
+	//即到达设定的deadline时自动将任务设为过期  ，过期状态需修改样式
+	//Next bug : deadline能设置成已过期的时间
+	
 	public Tasks() {
 		
 	}

@@ -55,4 +55,22 @@ public class UserDao {
 		}
 		return user;
 	}
+	
+	//通过用户名检查User是否存在
+	public int checkUserByName(String userName) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "SELECT * FROM user WHERE userName=?";
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		pStatement.setString(1, userName);
+		ResultSet resultSet = pStatement.executeQuery();
+		
+		//result大于0则用户存在，为0则说明不存在
+		int result;
+		if(resultSet.next()) {
+			result = 1;
+		} else {
+			result = 0;
+		}
+		return result;
+	}
 }

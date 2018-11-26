@@ -87,4 +87,15 @@ public class TasksService {
 		}
 		return result;
 	}
+	
+	public boolean resetTasks(String tasksId) throws Exception {
+		boolean result = false;
+		try {
+			result = tasksDao.resetTasks(tasksId) > 0;
+		} catch (Exception e) {
+			System.out.println("ResetTasks Service Error ! ");
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

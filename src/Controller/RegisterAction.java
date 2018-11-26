@@ -41,12 +41,21 @@ public class RegisterAction extends Action {
 			user.setPassword(password);
 		}
 		
-		boolean result = false;
-		result = userService.addUser(user);
-		if(result) {
-			return actionMapping.findForward("success");
-		} else {
+		//一种方法
+		//将success跳转设为新增页面，在SuccessRegisterPage.jsp中写一个模态框提示注册成功并跳转至LoginPage.jsp界面
+		//Login.jsp同理
+		boolean isUserExist = userService.checkUserByName(userName);
+		if(isUserExist) {
+			System.out.println("用户已存在！");
 			return actionMapping.findForward("error");
+		} else {
+			boolean result = false;
+			result = userService.addUser(user);
+			if(result) {
+				return actionMapping.findForward("success");
+			} else {
+				return actionMapping.findForward("error");
+			}
 		}
 	}
 }

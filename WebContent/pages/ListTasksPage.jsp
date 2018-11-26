@@ -94,7 +94,7 @@
             					<td><%= list.get(i).getCreateTime() %></td>
             					<td><%= list.get(i).getDeadline() %></td>
             					<!-- list.get(i).getTasksId -->
-            					<td><a href='/todo/listTasksPage.do?tasksId=<%= list.get(i).getTasksId() %>&todolistId=<%= todolistId %>'><button class="btn btn-large btn-primary" type="button">完成</button></a></td>
+            					<td><a href='/todo/listTasksPage.do?tasksId=<%= list.get(i).getTasksId() %>&todolistId=<%= todolistId %>&complete=1'><button class="btn btn-large btn-primary" type="button">完成</button></a></td>
             					<%
                                 	}
                                 %>
@@ -125,13 +125,13 @@
         						<%
         							if(list.get(i).isFinished()) {
         						%>
-                                <td style="color: grey; text-decoration: line-through; font-style: italic;"><%= list.get(i).getTitle() %></td>
+                                <td style="color: grey; text-decoration: line-through; font-style: italic; font-weight: bold;"><%= list.get(i).getTitle() %></td>
             					<td><%= list.get(i).getContents() %></td>
             					<td><%= list.get(i).getPriority() %></td>
             					<td><%= list.get(i).getCreateTime() %></td>
             					<td><%= list.get(i).getDeadline() %></td>
             					<!-- list.get(i).getTasksId -->
-            					<td><a href='/todo/listTasksPage.do?tasksId=<%= list.get(i).getTasksId() %>&todolistId=<%= todolistId %>'><button class="btn btn-large btn-success" type="button">切换</button></a></td>
+            					<td><a href='/todo/listTasksPage.do?tasksId=<%= list.get(i).getTasksId() %>&todolistId=<%= todolistId %>&complete=0'><button class="btn btn-large btn-success" type="button">切换</button></a></td>
             					<%
         							}
         						%>
