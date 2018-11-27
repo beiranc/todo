@@ -149,6 +149,12 @@
             <forward name="error" path="/pages/ErrorPage.jsp"/>
     </action>
     
+    <!-- success跳searchResultPage,失败则跳error -->
+    <action path="/searchTasks" type="Controller.SearchTasksAction">
+            <forward name="success" path="/pages/SearchResultPage.jsp"/>
+            <forward name="error" path="/pages/ErrorPage.jsp"/>
+    </action>
+    
     </action-mappings>
 
 

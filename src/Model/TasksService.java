@@ -98,4 +98,15 @@ public class TasksService {
 		}
 		return result;
 	}
+	
+	public List<Tasks> searchTasksByKey(String keyWord) {
+		List<Tasks> list = new ArrayList();
+		try {
+			list = tasksDao.searchTasksByKey(keyWord);
+		} catch (Exception e) {
+			System.out.println("SearchTasksByKey Service Error ! ");
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

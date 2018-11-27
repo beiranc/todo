@@ -62,7 +62,7 @@ public class TasksDao {
 		return result;
 	}
 	
-	//查询一个tasks
+	//通过Id查询一个tasks
 	public Tasks getTasksById(String tasksId) throws Exception {
 		Connection connection = connectionUtil.getconn();
 		String sql = "SELECT * FROM tasks WHERE tasksId=?";
@@ -147,15 +147,39 @@ public class TasksDao {
 	}
 	
 	//任务状态重置为未完成
-		public int resetTasks(String tasksId) throws Exception {
-			Connection connection = connectionUtil.getconn();
-			String sql = "UPDATE tasks SET isFinished=? WHERE tasksId=?";
-			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setBoolean(1, false);
-			pStatement.setString(2, tasksId);
-			
-			//result大于0表示修改成功
-			int result = pStatement.executeUpdate();
-			return result;
+	public int resetTasks(String tasksId) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "UPDATE tasks SET isFinished=? WHERE tasksId=?";
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		pStatement.setBoolean(1, false);
+		pStatement.setString(2, tasksId);
+		
+		//result大于0表示修改成功
+		int result = pStatement.executeUpdate();
+		return result;
+	}
+	
+	//根据关键字模糊查询title
+	public List<Tasks> searchTasksByKey(String keyWord) throws Exception {
+		Connection connection = connectionUtil.getconn();
+		String sql = "SELECT * FROM tasks WHERE title LIKE '%" + keyWord + "%' AND isFinished=false";
+		PreparedStatement pStatement = connection.prepareStatement(sql);
+		ResultSet resultSet = pStatement.executeQuery();
+		
+		List<Tasks> list = new ArrayList();
+		while(resultSet.next()) {
+			Tasks tasks = new Tasks();
+			tasks.setTasksId(resultSet.getString("tasksId"));
+			tasks.setTitle(resultSet.getString("title"));
+			tasks.setContents(resultSet.getString("contents"));
+			tasks.setFinished(resultSet.getBoolean("isFinished"));
+			tasks.setPriority(resultSet.getInt("priority"));
+			tasks.setCreateTime(resultSet.getString("createTime"));
+			tasks.setDeadline(resultSet.getString("deadline"));
+			tasks.setIs_del(resultSet.getInt("is_del"));
+			tasks.setTodolistId(resultSet.getString("todolistId"));
+			list.add(tasks);
 		}
+		return list;
+	}
 }

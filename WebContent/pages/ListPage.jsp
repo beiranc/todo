@@ -1,3 +1,5 @@
+<%@page import="Model.TasksService"%>
+<%@page import="Model.Tasks"%>
 <%@page import="Model.TodolistService"%>
 <%@page import="Model.UserService"%>
 <%@page import="Model.User"%>
@@ -70,16 +72,16 @@
    	    		<div class="container-fluid" id="XS">
    					<div class="row-fluid">
    						<div class="span12">
-                               <form class="form form-search form-inline">
-                                   <table class="table">
-                       				<tbody>
-                       					<tr> <!-- btn-lg -->
-                       						<td style="border: 0px;"><input style="width: 100%;" class="input-medium search-query form-control" type="text" placeholder="keyword..."/></td>
-                       						<td style="border: 0px;"><button type="submit" class="btn btn-success btn-block active"><span class="glyphicon glyphicon-search"></span>&nbsp;查找</button></td>
-                       					</tr>
-                       				</tbody>
-                       			</table>
-                               </form>
+                            <form class="form form-search form-inline" action="/todo/searchTasks.do" method="POST">
+                                <table class="table">
+                    				<tbody>
+                    					<tr> <!-- btn-lg -->
+                    						<td style="border: 0px;"><input style="width: 100%;" class="input-medium search-query form-control" type="text" name="keyWord" placeholder="input keyword..." required/></td>
+                    						<td style="border: 0px;"><button type="submit" class="btn btn-success btn-block active"><span class="glyphicon glyphicon-search"></span>&nbsp;查找</button></td>
+                    					</tr>
+                    				</tbody>
+                    			</table>
+                            </form>
    						</div>
    					</div>
    				</div>
@@ -88,7 +90,7 @@
         		<div class="span12">
         			<table class="table table-hover table-bordered text-center">
         				<thead>
-                            <caption class="text-center"><h1>Todolist</h1></caption>
+                            <caption class="text-center"><h1>待办清单</h1></caption>
         					<tr>
         						<th class="text-center">标题</th>
         						<th class="text-center">备注</th>
