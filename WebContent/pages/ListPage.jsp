@@ -28,6 +28,7 @@
     </style>
 </head>
 <body>
+	<!-- 用户注销功能待做 -->
 	<%@ page import="java.util.*" %>
 	<%@ page import="Model.Todolist"%>
 	<div class="container-fluid">

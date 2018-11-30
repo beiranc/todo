@@ -121,11 +121,11 @@
                             <%
                 				for(int i=0; i < list.size(); i++){
                 			%>
-        					<tr class="info">
+        					<tr class="info" style="color: grey; text-decoration: line-through; font-style: italic; font-weight: bold;">
         						<%
         							if(list.get(i).isFinished()) {
         						%>
-                                <td style="color: grey; text-decoration: line-through; font-style: italic; font-weight: bold;"><%= list.get(i).getTitle() %></td>
+                                <td><%= list.get(i).getTitle() %></td>
             					<td><%= list.get(i).getContents() %></td>
             					<td><%= list.get(i).getPriority() %></td>
             					<td><%= list.get(i).getCreateTime() %></td>

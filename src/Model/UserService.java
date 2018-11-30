@@ -46,7 +46,7 @@ public class UserService {
 	}
 	
 	//通过用户名检查User是否存在
-	public boolean checkUserByName(String userName) throws Exception {
+	public boolean checkUserByName(String userName) {
 		boolean result = false;
 		try {
 			//true则存在, false则不存在
